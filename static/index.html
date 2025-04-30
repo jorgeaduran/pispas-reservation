@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pispas Reservation Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script> <!-- Drag&Drop -->
+</head>
+<body>
+<h1>🧩 Pispas Reservation Manager</h1>
+
+<!-- Login Form -->
+<div id="login-container">
+    <h2>Login Restaurante</h2>
+    <input type="text" id="nombre" placeholder="Nombre del restaurante">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- Plano de mesas (se muestra tras login) -->
+<div id="plano-container" style="display:none;">
+    <h2>Plano del local</h2>
+    <div id="plano"></div>
+    <button onclick="crearMesa()">Añadir Mesa</button>
+    <button onclick="crearNMesasPrompt()">Añadir varias mesas</button>
+    <button onclick="guardarPlano()">Guardar Plano</button>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

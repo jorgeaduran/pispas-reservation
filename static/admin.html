@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Pispas Reservation</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>⚙️ Administración Restaurantes</h1>
+
+<table id="tabla-restaurantes" border="1" style="margin: 20px auto;">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>OBJID</th>
+        <th>Confirmación automática</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+    async function cargarRestaurantes() {
+        const response = await fetch('/restaurants/all');
+
+        if (response.ok) {
+            const data = await response.json();
+            const tbody = document.querySelector('#tabla-restaurantes tbody');
+            tbody.innerHTML = '';
+
+            for (const r of data) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+            <td>${r.id}</td>
+            <td>${r.nombre}</td>
+            <td>${r.objid_pispas}</td>
+            <td>${r.confirmar_automaticamente ? "Sí" : "No"}</td>
+          `;
+                tbody.appendChild(tr);
+            }
+        } else {
+            alert('Error cargando restaurantes');
+        }
+    }
+
+    cargarRestaurantes();
+</script>
+</body>
+</html>

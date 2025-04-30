@@ -1,0 +1,61 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #111;
+    color: #ffcc00;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    margin: 20px 0;
+}
+
+input, button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+input {
+    width: 250px;
+}
+
+button {
+    background-color: #ffcc00;
+    color: #111;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffaa00;
+}
+
+#plano {
+    margin: 20px auto;
+    width: 800px;
+    height: 600px;
+    background-color: #222;
+    border: 2px dashed #ffcc00;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.mesa {
+    width: 80px;
+    height: 80px;
+    background-color: #ffcc00;
+    color: #111;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: move;
+    user-select: none;
+    border-radius: 10px;
+}

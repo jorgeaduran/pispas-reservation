@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Restaurante - Pispas Reservation</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>📝 Registrar Restaurante</h1>
+
+<div id="register-container">
+    <input type="text" id="nombre" placeholder="Nombre del restaurante">
+    <input type="password" id="password" placeholder="Contraseña">
+    <input type="text" id="objid_pispas" placeholder="OBJID del Pispas">
+    <label>
+        <input type="checkbox" id="confirmar_automaticamente">
+        Confirmar reservas automáticamente
+    </label>
+    <button onclick="register()">Registrar Restaurante</button>
+</div>
+
+<script>
+    async function register() {
+        const nombre = document.getElementById('nombre').value;
+        const password = document.getElementById('password').value;
+        const objid = document.getElementById('objid_pispas').value;
+        const confirmar = document.getElementById('confirmar_automaticamente').checked;
+
+        const response = await fetch('/restaurants/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: nombre,
+                password: password,
+                objid_pispas: objid,
+                confirmar_automaticamente: confirmar
+            })
+        });
+
+        if (response.ok) {
+            alert('Restaurante registrado correctamente!');
+            window.location.href = "/static/index.html"; // Te manda al login
+        } else {
+            alert('Error registrando restaurante');
+        }
+    }
+</script>
+</body>
+</html>
